@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+</head>
+
+<body>
+    <div id="aaa">
+
+    </div>
+    <script>
+        //array
+        a = [];
+        a.push(3.14);
+        a.push(100);
+        a.push("Hello");
+        console.log(a);
+
+        console.log("for of 批次讀取容器資料");
+        for (const x of a) {
+            console.log(x);
+        }
+
+        // set
+        const fruits = new Set(["apple", "Banana"]);
+        fruits.add("cherry");
+        fruits.add("apple");
+        console.log(fruits);
+        console.log("for of 批次讀取容器資料");
+        for (const x of fruits) {
+            console.log(x);
+        }
+
+
+        //object
+        const st = {
+            name: "Tom",
+            eng: 100,
+            math: 99,
+            total: null, //null 空值
+            算總分: function () {
+                this.total = this.eng + this.math;
+                console.log("算總分 this.total =" + this.total);
+                return this.eng + this.name;
+            }
+        }
+
+
+
+        console.log(st);
+        console.log(st.name);
+        console.log(st.eng);
+        console.log(st.math);
+        console.log("總分 = " + (st.eng + st.math));
+        console.log("總分 = " + st.算總分());
+
+        //樣板字串(python f - 字串 格式化)
+        const s = `
+            <p>姓名 ${st.name}</p>
+            <p>英文 ${st.eng}</p>
+            <p>數學 ${st.math}</p>
+            <p>總分 ${st.total}</p>
+        `;
+
+        //尋找id為aaa網頁元素
+        const aaa = document.getElementById("aaa");
+        console.log(aaa);
+        //innerHTML 元素內容
+        aaa.innerHTML = s;
+
+        //[{},{}]巢狀資料結構
+        const data = [
+            { name: "Tom", eng: 100 },
+            { name: "Amy", eng: 85 }
+        ]
+
+        let ss = "";
+        for (const x of data) {
+            // +=累加
+            ss += `
+                <div>
+                    <p>姓名 ${x.name}</p>
+                    <p>英文 ${x.eng}</p>
+                    <br>
+                </div>
+            `;
+        }
+        console.log(ss)
+        aaa.innerHTML = ss;
+
+        $.ajax(
+            {
+                url: "http://127.0.0.1:8000/api/product/",
+                method: "GET",
+                dataType: "json",
+
+                success: function (data) {
+                    console.log(data);
+                    for (const x of data) {
+                        // += 累加
+                        ss += `
+                            <div>
+                                <p>url ${x.url}</p>
+                                <p>name ${x.name}</p>
+                                <p>price ${x.price}</p>
+                                <br>
+                            </div>
+
+                        ` ;
+                    }
+                    console.log(ss);
+                    aaa.innerHTML = ss;
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr);
+                    console.log(status);
+                    console.log(error);
+
+                }
+
+            }
+
+        );
+
+    </script>
+</body>
+
+</html>

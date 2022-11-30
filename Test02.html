@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test02</title>
+</head>
+
+<body>
+    <script>
+        function test() {//大括號代表獨立的區域範圍
+            console.log("test()a =" + a); //看不見函式範圍外的a區域變數
+        }
+
+        test(); //呼叫test 函式
+        a = 2;
+        console.log(a);
+        if (a === undefined) {// undefine 未設定值
+            console.log("a is undifinded");
+        } else {
+            console.log("a is defined");
+        }
+
+        test();//呼叫test 函式
+
+        //var a; //全域變數
+
+        let a; // a 是區域變數,僅在script 範圍有效,test 函式無法使用
+
+    </script>
+</body>
+
+</html>

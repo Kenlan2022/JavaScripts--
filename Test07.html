@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test07</title>
+</head>
+
+<body>
+    <script>
+        //JavaSCript Object{屬性:值, 方法:匿名函式}
+        var person = {
+            firstName: "飛鴻",
+            lastName: "黃",
+            fullName: function () {
+                return this.lastName + "" + this.firstName; //this 是指當前{}物件
+            }
+
+
+        };
+
+        var s = person.fullName(); //這行執行時,this 會是 person
+        console.log(s);
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

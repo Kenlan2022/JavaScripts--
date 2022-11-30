@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>設計display方法</title>
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        //JavaScript Object {屬性:值, 方法:}
+        var person = {
+            //properties(屬性),
+            name: "張無忌",
+            age: 20,
+            weapons: [
+                {
+                    name: "倚天劍",
+                    price: 1000
+
+                },
+                {
+                    name: "屠龍刀",
+                    price: 2000
+
+
+                },
+                {
+                    name: "仙女棒",
+                    price: 3000
+                }
+
+            ],
+            //method(方法)
+            display: function () {
+                for (var w of this.weapons) {
+                    console.log(w.name + "" + w.price);
+                }
+            }
+        };
+
+        person.display();
+    </script>
+</body>
+
+</html>

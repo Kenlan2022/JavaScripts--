@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=sc, initial-scale=1.0">
+    <title>test18shop(cors跨域請求)</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $.ajax(
+            {
+                url: "http://127.0.0.1:8000/api/product/1/",
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    //下載成功時
+                    console.log("----success----");
+                    console.log(data);
+                },
+                error: function (xhr, status, error) {
+                    console.log("----error----");
+                    console.log(xhr);
+                    console.log(status);
+                    console.log(error);
+                }
+            }
+        );
+
+        let t = `
+        <div class="card">
+            <div class="card-header text-success text-center">
+                <h3>${product_id}</h3>
+        </div>
+        <img src="card-img-top"src="${img_file}" alt="Card image" style="width: 100%">
+        <div>
+            <h4 class="card-title">${product.name}</h4>
+            <p class="card-text">${product.price}</p>
+            <button class="btn btn-primary float-right" style="margin-bottom: 1em">加入購物車</button>
+        </div>
+    </div>`
+
+
+
+
+
+    </script>
+
+
+    <div id="a">
+
+
+
+
+    </div>
+</body>
+
+</html>
